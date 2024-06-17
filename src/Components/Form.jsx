@@ -1,10 +1,23 @@
 import PropTypes from 'prop-types';
 
-export const Form = () => {  
+export const Form = ({ handleChange }) => {  
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleChange([e.target.values])
+    e.target.reset('')
+
+  };
+
   return (
-  <>
-  <h1></h1>
-  </>
+    <form onSubmit={onSubmit}>
+    <input
+      placeholder="Search City"
+      type="text"
+      onChange={handleChange}
+    />
+    <button type="submit">Search for city</button>
+  </form>
  
   );
 };

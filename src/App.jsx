@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form } from "./Components/Form";
 
 export const App = () => {
   const [values, setValue] = useState("");
@@ -10,26 +11,13 @@ export const App = () => {
       [name]: value,
     });
   };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(values)
-    e.target.reset('')
-
-  };
+ 
   
   return (
     <main className="container">
       <h1>Weather App</h1>
       <hr />
-      <form onSubmit={onSubmit}>
-        <input
-          placeholder="Search City"
-          type="text"
-          name="name"
-          onChange={handleChange}
-        />
-        <button type="submit">Search for city</button>
-      </form> 
+       <Form handleChange={ handleChange }/>
       <section></section>
       <h3>{values.name}</h3> 
       <hr />
