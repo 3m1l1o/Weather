@@ -17,9 +17,9 @@ export const App = () => {
     <main className="container">
       <h1>Weather App</h1>
       <hr />
-       <Form handleChange={ handleChange }/>
+       <Form handleChange={ setValue }/>
       <section></section>
-      <h3>{values.name}</h3> 
+      <h3>{values}</h3> 
       <hr />
       <p>information</p>
       <footer>

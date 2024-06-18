@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 export const Form = ({ handleChange }) => {  
 
+  const [inputValue, setinputValue] = useState('');
+  const onInputChange = (e)=>{
+    setinputValue(e.target.value)
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
-    handleChange([e.target.values])
-    e.target.reset('')
-
+    handleChange( inputValue )
+    e.target.reset('');
   };
 
   return (
@@ -14,7 +19,7 @@ export const Form = ({ handleChange }) => {
     <input
       placeholder="Search City"
       type="text"
-      onChange={handleChange}
+      onChange={onInputChange}
     />
     <button type="submit">Search for city</button>
   </form>
