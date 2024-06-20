@@ -2,24 +2,21 @@ import { useState } from "react";
 import { Form } from "./Components/Form";
 
 export const App = () => {
-  const [values, setValue] = useState("");
+  const [values, setValue] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValue({
-      ...values,
-      [name]: value,
-    });
-  };
- 
-  
+   const handleChange = ( newHandleChange ) => {
+    if( newHandleChange  <= 1) return;
+    console.log( newHandleChange )
+    setValue([ newHandleChange, ...values])
+   };  
+
   return (
     <main className="container">
       <h1>Weather App</h1>
       <hr />
-       <Form handleChange={ setValue }/>
+       <Form onNewHandleChange={  handleChange }/>
       <section></section>
-      <h3>{values}</h3> 
+      <h3>{ values }</h3> 
       <hr />
       <p>information</p>
       <footer>
