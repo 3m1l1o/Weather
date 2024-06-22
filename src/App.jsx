@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "./Components/Form";
+import { getWeatherByCity } from "./Services/WeatherServices";
 
 export const App = () => {
   const [values, setValue] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
 
-   const handleChange = ( newHandleChange ) => {
+  useEffect(() => {
+    
+  }, [weatherData]);
+
+
+
+   const handleChange = async ( newHandleChange ) => {
     if( newHandleChange  <= 1) return;
     console.log( newHandleChange )
     setValue([ newHandleChange, ...values])
+    const data = await getWeatherByCity(newHandleChange)
+    setWeatherData(data)
    };  
 
   return (
