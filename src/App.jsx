@@ -10,22 +10,25 @@ export const App = () => {
     
   }, [weatherData]);
 
-
-
    const handleChange = async ( newHandleChange ) => {
     if( newHandleChange  <= 1) return;
     console.log( newHandleChange )
-    setValue([ newHandleChange, ...values])
+    setValue([ newHandleChange ])
     const data = await getWeatherByCity(newHandleChange)
     setWeatherData(data)
+    console.log(data)
    };  
-
+   const minTemp = weatherData?.main?.temp_min;
+   const maxTemp = weatherData?.main?.temp_max;
   return (
     <main className="container">
       <h1>Weather App</h1>
       <hr />
        <Form onNewHandleChange={  handleChange }/>
-      <section></section>
+      <section className="conteiner-temp">
+        <h3>Temperatura Mínima: {minTemp} °C</h3>
+        <h3>Temperatura Máxima: {maxTemp} °C</h3>
+        </section>
       <h3>{ values }</h3> 
       <hr />
       <p>information</p>

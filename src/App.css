@@ -3,6 +3,12 @@ input{
   width: 73vh;
   height: 15px;
 }
+.conteiner-temp{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  flex-direction: column;
+}
 li, p{
   display: block;
   margin: 10px auto;

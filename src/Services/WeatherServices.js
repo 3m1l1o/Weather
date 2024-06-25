@@ -1,5 +1,5 @@
-// const API_KEY = "024a68afc0042521189225f763bc5d2e";
-const API_KEY = "a1286f9f7ffba581857db9a1221b9fd1";
+ const API_KEY = "024a68afc0042521189225f763bc5d2e";
+//const API_KEY = "a1286f9f7ffba581857db9a1221b9fd1";
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 export const getWeatherByCity = async (city) => {
@@ -10,6 +10,7 @@ export const getWeatherByCity = async (city) => {
         }
         const data = await response.json();
         return data;
+        
     } catch (error) {
         console.log(error);
     }
