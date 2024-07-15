@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Form } from "./Components/Form";
 import { getWeatherByCity } from "./Services/WeatherServices";
+import { Values } from "./Utils/Values";
+import { Footer } from "./Utils/Footer";
+import { ListData } from "./Services/ListData";
 
 export const App = () => {
   const [values, setValue] = useState('');
   const [weatherData, setWeatherData] = useState(null);
-
-  useEffect(() => {
-    
-  }, [weatherData]);
 
    const handleChange = async ( newHandleChange ) => {
     if( newHandleChange  <= 1) return;
@@ -26,15 +25,12 @@ export const App = () => {
       <hr />
        <Form onNewHandleChange={  handleChange }/>
       <section className="conteiner-temp">
-        <h3>Temperatura Mínima: {minTemp} °C</h3>
-        <h3>Temperatura Máxima: {maxTemp} °C</h3>
+        <ListData maxTemp={maxTemp} minTemp={minTemp}/>
         </section>
-      <h3>{ values }</h3> 
+      <Values values={values}/>
       <hr />
       <p>information</p>
-      <footer>
-        Weather App can show inaccurate information, handle data with caution
-      </footer>
+      <Footer />
     </main>
   );
 };
