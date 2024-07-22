@@ -3,7 +3,7 @@ import { Form } from "./Components/Form";
 import { getWeatherByCity } from "./Services/WeatherServices";
 import { Values } from "./Utils/Values";
 import { Footer } from "./Utils/Footer";
-import { ListData } from "./Services/ListData";
+import { ListData } from "./Components/ListData";
 
 export const App = () => {
   const [values, setValue] = useState('');
