@@ -15,3 +15,16 @@ export const getWeatherByCity = async (city) => {
         console.log(error);
     }
 }
+export const getWeatherByLocation = async (latitude, longitude) => {
+    try {
+        const response = await fetch(`${API_URL}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
+        if(!response.ok) {
+            console.log('error')
+        }
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
